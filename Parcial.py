@@ -1,3 +1,6 @@
+from logging import exception
+
+
 def Menu():
     print("Menu Principal")
     print("1.Agregar empleados")
@@ -19,4 +22,17 @@ class Contact:
     def __init__(self, email, phone):
         self.email = email
         self.phone = phone
-
+allow = False
+while allow == False:
+    Menu()
+    opt = int(input("Selecciona una opcion: "))
+    match opt:
+        case 1:
+            print("Cuantos empleados desea ingresar?")
+        case 2:
+            print("Mostrar empleados")
+        case 3:
+            print("Gracias por utilizar el programa")
+            break
+        case _:
+            print("La opción ingresada no es valida")
