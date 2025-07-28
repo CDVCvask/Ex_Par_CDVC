@@ -22,7 +22,15 @@ class Evaluation:
     def Avarage(self):
         Total = self.on_time + self.team + self.product
         return Total/3
-    def
+    def Performance(self,Avarage):
+        if Avarage <= 0:
+            return "Despedido"
+        elif Avarage <7:
+            return "Debe mejorar"
+        elif Avarage <10:
+            return "Satisfactorio"
+        else:
+            return "Empleado del mes"
 class Contact:
     def __init__(self, email, phone):
         self.email = email
@@ -40,7 +48,7 @@ while allow == False:
             if num <= 0 or num > 20:
                 print("La cantidad ingresada no es valida")
             else:
-                for i in range(num-1):
+                for i in range(num):
                     print(" ")
                     print(f"Empleado {cont+1}:")
                     e_code = f"EMP{cont}"
@@ -62,9 +70,12 @@ while allow == False:
                                 if product <= 0 or product > 10:
                                     print("La cantidad ingresada no es valida")
                                 else:
-                                    obser = int(input("Ingrese alguna observación sobre el empleado: "))
+                                    obser = input("Ingrese alguna observación sobre el empleado: ")
                                     phone = input("Ingrese el telefono del empleado: ")
                                     mail = input("Ingrese el correo del empleado del empleado: ")
+                                    check_evaluation = Evaluation(on_time,team,product,obser)
+                                    Avarage = check_evaluation.Avarage()
+                                    Performance = check_evaluation.Performance(Avarage)
                                     cont = cont + 1
         case 2:
             print("Mostrar empleados")
