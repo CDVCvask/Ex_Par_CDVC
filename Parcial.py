@@ -78,12 +78,19 @@ while allow == False:
                                     Avarage = check_evaluation.Avarage()
                                     Performance = check_evaluation.Performance(Avarage)
                                     cont = cont + 1
-                                    Empleados[e_code] = {'Info':{'Name':name,'Department':department,'Time':time},
-                                                         'Evaluation':{'on_time':on_time,'team':team,'product':product,'obser':obser,
-                                                                       'Avarage':Avarage,'Performance':Performance},
-                                                         'Contact':{'email':email,'phone':phone}}
+                                    Empleados[e_code] = {'Info':{'Nombre':name,'Departamento':department,'Antiguedad':time},
+                                                         'Evaluation':{'Puntualidad':on_time,'Trabajo_en_equipo':team,'Producción':product,'Observaciones':obser,
+                                                                       'Promedio':Avarage,'Desempeño':Performance},
+                                                         'Contact':{'Correo':email,'Telefono':phone}}
         case 2:
-
+            for code,value in Empleados.items():
+                print(f"Código de empleado: {code}")
+                for key, val in value['Info'].items():
+                    print(f"{key} del empleado: {val}")
+                for key, val in value['Evaluation'].items():
+                    print(f"{key} del empleado: {val}")
+                for key, val in value['Contact'].items():
+                    print(f"{key} del empleado: {val}")
         case 3:
             print("Gracias por utilizar el programa")
             break
