@@ -1,3 +1,4 @@
+import email
 from logging import exception
 
 
@@ -36,7 +37,7 @@ class Contact:
         self.email = email
         self.phone = phone
         self.Contact = {}
-Emloyees = {}
+Empleados = {}
 allow = False
 cont = 0
 while allow == False:
@@ -77,8 +78,12 @@ while allow == False:
                                     Avarage = check_evaluation.Avarage()
                                     Performance = check_evaluation.Performance(Avarage)
                                     cont = cont + 1
+                                    Empleados[e_code] = {'Info':{'Name':name,'Department':department,'Time':time},
+                                                         'Evaluation':{'on_time':on_time,'team':team,'product':product,'obser':obser,
+                                                                       'Avarage':Avarage,'Performance':Performance},
+                                                         'Contact':{'email':email,'phone':phone}}
         case 2:
-            print("Mostrar empleados")
+
         case 3:
             print("Gracias por utilizar el programa")
             break
