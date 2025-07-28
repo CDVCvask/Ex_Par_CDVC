@@ -24,7 +24,7 @@ class Evaluation:
         Total = self.on_time + self.team + self.product
         return Total/3
     def Performance(self,Avarage):
-        if Avarage <= 0:
+        if Avarage <= 1:
             return "Despedido"
         elif Avarage <7:
             return "Debe mejorar"
@@ -39,6 +39,7 @@ class Contact:
         self.Contact = {}
 Empleados = {}
 allow = False
+Show = False
 cont = 0
 while allow == False:
     Menu()
@@ -73,7 +74,7 @@ while allow == False:
                                 else:
                                     obser = input("Ingrese alguna observación sobre el empleado: ")
                                     phone = input("Ingrese el telefono del empleado: ")
-                                    mail = input("Ingrese el correo del empleado del empleado: ")
+                                    mail = input("Ingrese el correo del empleado: ")
                                     check_evaluation = Evaluation(on_time,team,product,obser)
                                     Avarage = check_evaluation.Avarage()
                                     Performance = check_evaluation.Performance(Avarage)
@@ -81,16 +82,24 @@ while allow == False:
                                     Empleados[e_code] = {'Info':{'Nombre':name,'Departamento':department,'Antiguedad':time},
                                                          'Evaluation':{'Puntualidad':on_time,'Trabajo_en_equipo':team,'Producción':product,'Observaciones':obser,
                                                                        'Promedio':Avarage,'Desempeño':Performance},
-                                                         'Contact':{'Correo':email,'Telefono':phone}}
+                                                         'Contact':{'Correo':mail,'Telefono':phone}}
+                                    Show = True
         case 2:
-            for code,value in Empleados.items():
-                print(f"Código de empleado: {code}")
-                for key, val in value['Info'].items():
-                    print(f"{key} del empleado: {val}")
-                for key, val in value['Evaluation'].items():
-                    print(f"{key} del empleado: {val}")
-                for key, val in value['Contact'].items():
-                    print(f"{key} del empleado: {val}")
+            cont1 = 1
+            if Show == False:
+                print("No hay ningún dato que mostrar")
+            else:
+                for code,value in Empleados.items():
+                    print(" ")
+                    print(f"Empleado {cont1}:")
+                    print(f"Código de empleado: {code}")
+                    for key, val in value['Info'].items():
+                        print(f"{key} del empleado: {val}")
+                    for key, val in value['Evaluation'].items():
+                        print(f"{key} del empleado: {val}")
+                    for key, val in value['Contact'].items():
+                        print(f"{key} del empleado: {val}")
+                cont1 = cont1 + 1
         case 3:
             print("Gracias por utilizar el programa")
             break
