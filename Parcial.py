@@ -116,10 +116,12 @@ while allow == False:
         case 5:
             Top = 0
             Code = " "
+            check = 0
             for code, value in Empleados.items():
                 for key, val in value['Evaluation'].items():
-                    if val > Top:
-                        High = ['Promedio']
+                    check = val['Promedio']
+                    if check > Top:
+                        Top = ['Promedio']
                         Code = code
             print(f"El empleado con el código {Code} tiene un promedio de {Top}, es el más alto ")
         case 4:
