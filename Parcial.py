@@ -11,17 +11,24 @@ class Emloyee:
         self.name = name
         self.department = department
         self.time = time
-        self.evaluation = {}
+        self.Info = {}
 class Evaluation:
     def __init__(self, on_time,team,product,obser):
         self.on_time = on_time
         self.team = team
         self.product = product
         self.obser = obser
+        self.Evaluation = {}
+    def Avarage(self):
+        Total = self.on_time + self.team + self.product
+        return Total/3
+    def
 class Contact:
     def __init__(self, email, phone):
         self.email = email
         self.phone = phone
+        self.Contact = {}
+Emloyees = {}
 allow = False
 cont = 0
 while allow == False:
@@ -29,15 +36,17 @@ while allow == False:
     opt = int(input("Selecciona una opcion: "))
     match opt:
         case 1:
-            num = int(input("Cuantos empleados desea ingresar?"))
+            num = int(input("Cuantos empleados desea ingresar? "))
             if num <= 0 or num > 20:
                 print("La cantidad ingresada no es valida")
             else:
-                for i in range(num):
+                for i in range(num-1):
+                    print(" ")
+                    print(f"Empleado {cont+1}:")
                     e_code = f"EMP{cont}"
                     name = input("Ingrese el nombre del empleado: ")
                     department = input("Ingrese el departamento del empleado: ")
-                    time = input("Ingrese la antiguedad del empleado: ")
+                    time = int(input("Ingrese la antiguedad del empleado: "))
                     if time <= 0:
                         print("La cantidad ingresada no es valida")
                     else:
@@ -56,6 +65,7 @@ while allow == False:
                                     obser = int(input("Ingrese alguna observación sobre el empleado: "))
                                     phone = input("Ingrese el telefono del empleado: ")
                                     mail = input("Ingrese el correo del empleado del empleado: ")
+                                    cont = cont + 1
         case 2:
             print("Mostrar empleados")
         case 3:
