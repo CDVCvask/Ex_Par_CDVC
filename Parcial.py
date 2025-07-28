@@ -6,7 +6,10 @@ def Menu():
     print("Menu Principal")
     print("1.Agregar empleados")
     print("2.Mostrar empleados")
-    print("3.Salir")
+    print("4.Bucar")
+    print("5.Cuantos empleados tienen desempeño satisfactorio?")
+    print("6.Promedio más alto")
+    print("7.Salir")
 class Emloyee:
     def __init__(self, name,department,time):
         self.name = name
@@ -100,7 +103,18 @@ while allow == False:
                     for key, val in value['Contact'].items():
                         print(f"{key} del empleado: {val}")
                 cont1 = cont1 + 1
-        case 3:
+        case 4:
+            look = input("Ingrese el código del empleado que busca")
+        case 6:
+            print("Satisfactorios")
+        case 5:
+            count = 0
+            for code,value in Empleados.items():
+                for key, val in value['Evaluation'].items():
+                    if val == "Satisfactorio" or val == "Empleado del mes":
+                        count = count + 1
+            print(f"Hay {count} empleados con un desempeño satisfactorio o superior")
+        case 7:
             print("Gracias por utilizar el programa")
             break
         case _:
