@@ -1,6 +1,3 @@
-import email
-from logging import exception
-
 
 def Menu():
     print("Menu Principal")
@@ -118,11 +115,10 @@ while allow == False:
             Code = " "
             check = 0
             for code, value in Empleados.items():
-                for key, val in value['Evaluation'].items():
-                    check = val['Promedio']
-                    if check > Top:
-                        Top = ['Promedio']
-                        Code = code
+                check = value['Evaluation']['Promedio']
+                if check > Top:
+                    Top = check
+                    Code = code
             print(f"El empleado con el código {Code} tiene un promedio de {Top}, es el más alto ")
         case 4:
             count = 0
