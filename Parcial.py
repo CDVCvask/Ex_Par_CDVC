@@ -101,32 +101,41 @@ while allow == False:
                         print(f"{key} del empleado: {val}")
                 cont1 = cont1 + 1
         case 3:
-            find = 0
-            look = input("Ingrese el código del empleado que busca: ")
-            for key, val in Empleados.items():
-                if look == key:
-                    find = 1
-            if find == 1:
-                print(Empleados[look])
+            if Show == False:
+                print("Aún no se a ingresado ningún dato")
             else:
-                print("Empleado no encontrado")
+                find = 0
+                look = input("Ingrese el código del empleado que busca: ")
+                for key, val in Empleados.items():
+                    if look == key:
+                        find = 1
+                if find == 1:
+                    print(Empleados[look])
+                else:
+                    print("Empleado no encontrado")
         case 5:
-            Top = 0
-            Code = " "
-            check = 0
-            for code, value in Empleados.items():
-                check = value['Evaluation']['Promedio']
-                if check > Top:
-                    Top = check
-                    Code = code
-            print(f"El empleado con el código {Code} tiene un promedio de {Top}, es el más alto ")
+            if Show == False:
+                print("Aún no se a ingresado ningún dato")
+            else:
+                Top = 0
+                Code = " "
+                check = 0
+                for code, value in Empleados.items():
+                    check = value['Evaluation']['Promedio']
+                    if check > Top:
+                        Top = check
+                        Code = code
+                print(f"El empleado con el código {Code} tiene un promedio de {Top}, es el más alto ")
         case 4:
-            count = 0
-            for code,value in Empleados.items():
-                for key, val in value['Evaluation'].items():
-                    if val == "Satisfactorio" or val == "Empleado del mes":
-                        count = count + 1
-            print(f"Hay {count} empleados con un desempeño satisfactorio o superior")
+            if Show == False:
+                print("Aún no se a ingresado ningún dato")
+            else:
+                count = 0
+                for code,value in Empleados.items():
+                    for key, val in value['Evaluation'].items():
+                        if val == "Satisfactorio" or val == "Empleado del mes":
+                            count = count + 1
+                print(f"Hay {count} empleados con un desempeño satisfactorio o superior")
         case 6:
             print("Gracias por utilizar el programa")
             break
